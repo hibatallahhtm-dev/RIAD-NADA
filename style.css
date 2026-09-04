@@ -1,0 +1,2307 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap");
+
+/* =========================================================
+   IMPORTS & VARIABLES
+========================================================= */
+
+:root {
+  --bg: #f4f0e9;
+  --paper: #f7f4ee;
+  --ink: #24211e;
+  --muted: #726a61;
+  --line: #ddd5cb;
+  --brown: #8b6848;
+  --brown-dark: #6d4d31;
+  --white: #fffdf9;
+  --serif: "Playfair Display", Georgia, serif;
+  --sans: "DM Sans", Arial, sans-serif;
+}
+
+/* =========================================================
+   GLOBAL STYLES
+========================================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--sans);
+  color: var(--ink);
+  background: var(--bg);
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  width: min(86%, 1420px);
+  margin-inline: auto;
+}
+
+/* =========================================================
+   HEADER & NAVIGATION
+========================================================= */
+
+.header {
+  height: 80px;
+  padding: 0 2.7%;
+  background: #faf8f4fa;
+
+  display: flex;
+  align-items: center;
+  gap: 30px;
+
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  border-bottom: 1px solid #00000008;
+}
+
+.logo {
+  width: 150px;
+  height: 90px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.nav-bar {
+  margin-left: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 29px;
+
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+.nav-bar a {
+  position: relative;
+  white-space: nowrap;
+  transition: 0.5s;
+}
+
+.nav-bar a:hover {
+  color: var(--brown);
+  text-decoration: underline 1.5px;
+  text-underline-offset: 10px;
+}
+
+.book-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  min-height: 38px;
+  padding: 0 25px;
+
+  background: var(--brown);
+  color: white;
+
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+
+  border-radius: 3px;
+  margin-left: 0;
+}
+
+.book-btn:hover .arrow {
+  transform: translateY(2px);
+}
+
+.book-btn:hover {
+  background: var(--brown-dark);
+  transform: translateY(-1px);
+}
+
+/* =========================================================
+   HOME PAGE — HERO
+========================================================= */
+
+.hero {
+  min-height: 500px;
+  height: calc(100vh - 80px);
+  max-height: 700px;
+
+  position: relative;
+  overflow: hidden;
+
+  color: white;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+}
+
+.hero::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  background: linear-gradient(
+    90deg,
+    rgba(22, 16, 11, 0.82) 0%,
+    rgba(27, 20, 14, 0.56) 43%,
+    rgba(26, 19, 13, 0.08) 76%
+  );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+
+  width: min(86%, 1420px);
+  margin: auto;
+  margin-top: 80px;
+}
+
+.eyebrow,
+.eyebrow-light {
+  margin-bottom: 12px;
+
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-underline-offset: 10px;
+
+  font-size: 14px;
+  letter-spacing: 0.11em;
+  font-weight: 600;
+}
+
+.eyebrow {
+  color: var(--brown);
+}
+
+.eyebrow-light {
+  color: #eee4d8;
+}
+
+.hero-title {
+  max-width: 570px;
+  margin-bottom: 19px;
+
+  font-family: var(--serif);
+  font-size: clamp(42px, 5vw, 74px);
+  font-weight: 400;
+  line-height: 1.08;
+}
+
+.hero-description {
+  margin-bottom: 26px;
+
+  font-size: 14px;
+  line-height: 1.85;
+
+  color: #f3eee7;
+}
+
+.hero-socials-icons {
+  position: absolute;
+  top: 50%;
+  right: 35px;
+  z-index: 3;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.hero-socials-icons a {
+  width: 25px;
+  height: 25px;
+
+  display: grid;
+  place-items: center;
+
+  color: white;
+  font-size: 15px;
+
+  transition: 0.3s;
+}
+
+.hero-socials-icons a img {
+  width: 20px;
+  height: 20px;
+
+  object-fit: contain;
+}
+
+.hero-socials-icons a:hover {
+  background: var(--brown);
+  border-radius: 50%;
+}
+
+/* =========================================================
+   HOME PAGE — ABOUT
+========================================================= */
+
+.about-section {
+  width: min(86%, 1420px);
+  margin-inline: auto;
+  padding: 55px 0;
+
+  display: grid;
+  grid-template-columns: 0.9fr 1.2fr;
+  align-items: center;
+  gap: 90px;
+}
+
+.about-content h2 {
+  margin-top: 25px;
+  margin-bottom: 18px;
+
+  font-family: var(--serif);
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.about-content > p:not(.eyebrow) {
+  margin-bottom: 22px;
+
+  color: #57514b;
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.about-btn {
+  display: inline-flex;
+  align-items: center;
+
+  min-height: 36px;
+  padding: 15px;
+
+  border: 1.4px solid #b89c82;
+  border-radius: 3px;
+
+  color: var(--brown);
+
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 12px;
+  font-weight: 400;
+
+  transition: 0.5s;
+}
+
+.about-btn:hover {
+  background: var(--brown);
+  color: white;
+  border: var(--brown);
+  transform: translateY(-1px);
+}
+
+.about-image {
+  height: 320px;
+
+  overflow: hidden;
+  border-radius: 7px;
+}
+
+.about-image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+/* =========================================================
+   HOME PAGE — ROOMS
+========================================================= */
+
+.rooms {
+  padding-top: 25px;
+  padding-bottom: 50px;
+}
+
+.rooms .container {
+  display: grid;
+
+  grid-template-columns: 1fr auto;
+  grid-template-areas:
+    "eyebrow link"
+    "title link";
+
+  align-items: end;
+  column-gap: 30px;
+
+  margin-bottom: 20px;
+}
+
+.rooms .container .eyebrow {
+  grid-area: eyebrow;
+  margin-bottom: 22px;
+}
+
+.rooms .container h2 {
+  grid-area: title;
+  font-family: var(--serif);
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+.rooms .container > a {
+  grid-area: link;
+  align-self: end;
+
+  color: var(--brown-dark);
+
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 11px;
+
+  white-space: nowrap;
+}
+
+.rooms .container > a span {
+  margin-right: 100px;
+  font-size: 19px;
+}
+
+.rooms-grid {
+  width: min(86%, 1420px);
+  margin-inline: auto;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.room-card {
+  overflow: hidden;
+
+  background: #f8f5ef;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.room-card:hover {
+  background: var(--line);
+  transition: 1s;
+}
+
+.card-image {
+  height: 190px;
+  overflow: hidden;
+}
+
+.card-image img {
+  height: 100%;
+  object-fit: cover;
+}
+
+.room-content {
+  padding: 18px 16px 18px;
+}
+
+.room-content h3 {
+  margin-bottom: 9px;
+
+  font-family: var(--serif);
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.room-content p {
+  min-height: 55px;
+  margin-bottom: 12px;
+
+  color: #68615a;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.room-content a {
+  color: var(--brown-dark);
+
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 10px;
+}
+
+.room-content span {
+  margin-left: 8px;
+  font-size: 18px;
+}
+
+/* =========================================================
+   HOME PAGE — DINING & EXPERIENCES
+========================================================= */
+
+.split-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3px;
+}
+
+.feature-panel {
+  height: 260px;
+
+  position: relative;
+  overflow: hidden;
+
+  color: white;
+}
+
+.feature-panel > img {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+.feature-panel::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  background: linear-gradient(
+    90deg,
+    rgba(29, 18, 11, 0.8),
+    rgba(30, 18, 10, 0.3)
+  );
+}
+
+.feature-content {
+  position: relative;
+  z-index: 2;
+
+  padding: 45px 12%;
+}
+
+.feature-content h2 {
+  margin-bottom: 10px;
+
+  font-family: var(--serif);
+  font-size: 34px;
+  font-weight: 400;
+}
+
+.feature-content p:not(.eyebrow-light) {
+  margin-bottom: 15px;
+
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.small {
+  min-height: 34px;
+  padding: 0 16px;
+  font-size: 9px;
+}
+
+/* =========================================================
+   HOME PAGE — RESERVATION
+========================================================= */
+
+.reservation {
+  margin-left: 90px;
+  margin-right: 90px;
+  padding: 28px 0 24px;
+
+  background: #f5f2ed;
+  border-bottom: 1px solid var(--line);
+}
+
+.reservation-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 3.8fr;
+  align-items: end;
+  gap: 35px;
+}
+
+.reservation h2 {
+  margin: 0;
+  margin-top: 20px;
+
+  font-family: var(--serif);
+  font-size: 25px;
+  letter-spacing: 0.06em;
+}
+
+.booking-form {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr) 1.2fr;
+  gap: 10px;
+}
+
+.booking-form label {
+  display: block;
+}
+
+.booking-form label span {
+  display: block;
+  margin-bottom: 7px;
+
+  color: #5e574f;
+
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  font-size: 9px;
+}
+
+.booking-form input,
+.booking-form select {
+  width: 100%;
+  height: 40px;
+  padding: 0 10px;
+
+  border: 1px solid #d7cfc5;
+  background: #f8f6f2;
+
+  color: #625b54;
+
+  font-family: var(--sans);
+  font-size: 11px;
+
+  outline: none;
+}
+
+.booking-form input:focus,
+.booking-form select:focus {
+  border-color: var(--brown);
+}
+
+.booking-form .book-btn {
+  align-self: end;
+
+  height: 40px;
+  min-height: 40px;
+  padding: 0 13px;
+
+  border: none;
+  border-radius: 3px;
+
+  font-size: 12px;
+}
+
+.booking-message {
+  width: min(86%, 1420px);
+  min-height: 18px;
+  margin: 10px auto 0;
+
+  color: var(--brown-dark);
+  font-size: 12px;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer {
+  padding: 32px 0 15px;
+  background: var(--bg);
+}
+
+.footer-grid {
+  width: min(86%, 1420px);
+  margin-inline: auto;
+
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1.2fr 1.5fr;
+  gap: 70px;
+}
+
+.footer-brand img {
+  width: 120px;
+  height: 90px;
+
+  margin-bottom: 8px;
+
+  object-fit: contain;
+}
+
+.footer p,
+.footer a {
+  display: block;
+
+  color: #5c554e;
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+.footer h4 {
+  margin-bottom: 12px;
+
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.footer a {
+  margin: 4px 0;
+  transition: 0.3s;
+}
+
+.footer a:hover {
+  color: var(--brown);
+}
+
+.footer-socials {
+  display: flex;
+  gap: 12px;
+
+  margin-top: 12px;
+}
+
+.footer-socials a {
+  width: 20px;
+  height: 20px;
+
+  color: var(--ink);
+  font-size: 14px;
+}
+
+.copyright {
+  margin-top: 16px;
+
+  color: #716960;
+  font-size: 10px;
+  text-align: center;
+}
+
+/* =========================================================
+   HOME PAGE — RESPONSIVE
+========================================================= */
+
+@media (max-width: 1180px) {
+  .nav-bar {
+    gap: 15px;
+    font-size: 10px;
+  }
+
+  .header {
+    gap: 20px;
+  }
+
+  .about {
+    gap: 50px;
+  }
+
+  .footer-grid {
+    gap: 35px;
+  }
+}
+
+@media (max-width: 900px) {
+  .header {
+    height: 68px;
+  }
+
+  .header-book {
+    display: none;
+  }
+
+  .nav-bar {
+    gap: 12px;
+  }
+
+  .hero {
+    height: 650px;
+  }
+
+  .about {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .about-image {
+    height: 350px;
+  }
+
+  .rooms-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .card-image {
+    height: 200px;
+  }
+
+  .reservation-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .booking-form {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .booking-form .book-btn {
+    grid-column: span 2;
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .container,
+  .hero-content,
+  .rooms-grid,
+  .about,
+  .footer-grid {
+    width: min(90%, 1420px);
+  }
+
+  .header {
+    padding: 0 5%;
+  }
+
+  .logo {
+    width: 100px;
+    height: 65px;
+  }
+
+  .nav-bar {
+    gap: 10px;
+    overflow-x: auto;
+  }
+
+  .hero {
+    height: 620px;
+  }
+
+  .hero-title {
+    font-size: 49px;
+  }
+
+  .hero-socials-icons {
+    right: 12px;
+  }
+
+  .section {
+    padding: 55px 0;
+  }
+
+  .about {
+    display: block;
+  }
+
+  .about-image {
+    height: 250px;
+    margin-top: 30px;
+  }
+
+  .rooms .container {
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .rooms-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card-image {
+    height: 220px;
+  }
+
+  .split-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-panel {
+    height: 280px;
+  }
+
+  .feature-content {
+    padding: 52px 10%;
+  }
+
+  .booking-form {
+    grid-template-columns: 1fr;
+  }
+
+  .booking-form .book-btn {
+    grid-column: auto;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+}
+
+/* =========================================================
+   OUR STORY PAGE
+========================================================= */
+
+/* =========================================================
+   STORY HERO
+========================================================= */
+
+.story-hero {
+  width: 100%;
+  height: 420px;
+
+  position: relative;
+  overflow: hidden;
+}
+
+.story-hero > img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+}
+
+.story-hero-overlay {
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    90deg,
+    rgba(20, 12, 8, 0.72) 0%,
+    rgba(20, 12, 8, 0.52) 45%,
+    rgba(20, 12, 8, 0.2) 100%
+  );
+}
+
+.story-hero-content {
+  position: absolute;
+
+  left: 8%;
+  bottom: 70px;
+
+  color: #ffffff;
+}
+
+.story-hero-content h1 {
+  margin-bottom: 18px;
+
+  font-size: 68px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.story-hero-content > p:last-child {
+  font-size: 16px;
+}
+
+/* =========================================================
+   HERITAGE SECTION
+========================================================= */
+
+.story-heritage {
+  width: 100%;
+  max-width: 1280px;
+
+  margin: 0 auto;
+  padding: 85px 8%;
+
+  display: flex;
+  align-items: center;
+  gap: 75px;
+}
+
+/* =========================================================
+   HERITAGE IMAGE
+========================================================= */
+
+.story-heritage-image {
+  width: 390px;
+  height: 500px;
+
+  flex-shrink: 0;
+  overflow: hidden;
+
+  border-radius: 3px;
+}
+
+.story-heritage-image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+}
+
+/* =========================================================
+   HERITAGE CONTENT
+========================================================= */
+
+.story-heritage-content {
+  max-width: 510px;
+}
+
+.story-heritage-content h2 {
+  margin-bottom: 25px;
+}
+
+.story-heritage-content p:not(.eyebrow) {
+  margin-bottom: 18px;
+
+  color: #645c56;
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.story-heritage-content .about-btn {
+  display: inline-block;
+  margin-top: 15px;
+}
+
+/* =========================================================
+   STORY QUOTE
+========================================================= */
+
+.story-quote {
+  width: 100%;
+  height: 500px;
+
+  position: relative;
+  overflow: hidden;
+}
+
+.story-quote > img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+}
+
+.story-quote-overlay {
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    90deg,
+    rgba(20, 12, 8, 0.25) 0%,
+    rgba(20, 12, 8, 0.72) 100%
+  );
+}
+
+.story-quote-content {
+  position: absolute;
+
+  top: 50%;
+  right: 12%;
+
+  transform: translateY(-50%);
+}
+
+.story-quote-content h2 {
+  color: white;
+
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+/* =========================================================
+   STORY PHILOSOPHY
+========================================================= */
+
+.story-philosophy {
+  padding: 85px 0 95px;
+  text-align: center;
+}
+
+.story-philosophy-title {
+  margin-bottom: 65px;
+}
+
+.story-values {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 50px;
+}
+
+.story-value {
+  text-align: center;
+}
+
+.story-icon {
+  width: 65px;
+  height: 65px;
+
+  margin: 0 auto 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #b7a18d;
+  border-radius: 50%;
+}
+
+.story-icon i {
+  color: #92704f;
+  font-size: 20px;
+}
+
+.story-value h3 {
+  margin-bottom: 12px;
+
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.story-value p {
+  color: #716963;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+/* =========================================================
+   STORY PAGE — RESPONSIVE TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+  .story-heritage {
+    padding: 70px 6%;
+    gap: 45px;
+  }
+
+  .story-heritage-image {
+    width: 42%;
+    height: 450px;
+  }
+
+  .story-quote-content {
+    right: 8%;
+  }
+
+  .story-quote-content h2 {
+    font-size: 40px;
+  }
+}
+
+/* =========================================================
+   STORY PAGE — RESPONSIVE MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+  /* HERO */
+
+  .story-hero {
+    height: 400px;
+  }
+
+  .story-hero-content {
+    left: 30px;
+    bottom: 55px;
+  }
+
+  .story-hero-content h1 {
+    font-size: 52px;
+  }
+
+  /* HERITAGE */
+
+  .story-heritage {
+    padding: 60px 25px;
+
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+  }
+
+  .story-heritage-image {
+    width: 100%;
+    height: 480px;
+  }
+
+  .story-heritage-content {
+    max-width: 100%;
+  }
+
+  /* QUOTE */
+
+  .story-quote {
+    height: 480px;
+  }
+
+  .story-quote-content {
+    left: 30px;
+    right: 25px;
+  }
+
+  .story-quote-content h2 {
+    font-size: 39px;
+  }
+
+  /* PHILOSOPHY */
+
+  .story-philosophy {
+    padding: 65px 0;
+  }
+
+  .story-values {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .story-hero-content h1 {
+    font-size: 45px;
+  }
+
+  .story-hero-content > p:last-child {
+    font-size: 14px;
+  }
+
+  .story-heritage-image {
+    height: 400px;
+  }
+
+  .story-heritage-content h2 {
+    font-size: 36px;
+  }
+
+  .story-quote {
+    height: 420px;
+  }
+
+  .story-quote-content h2 {
+    font-size: 33px;
+  }
+}
+
+/* =========================================================
+   DELUXE ROOM PAGE
+========================================================= */
+
+/* =========================================================
+   ROOM HERO
+========================================================= */
+
+.room-hero {
+  width: 100%;
+  height: 460px;
+
+  position: relative;
+  overflow: hidden;
+}
+
+.room-hero-image {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+  object-position: center;
+}
+
+.room-hero-overlay {
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    90deg,
+    rgba(28, 18, 12, 0.6),
+    rgba(28, 18, 12, 0.15)
+  );
+}
+
+.room-hero-content {
+  position: absolute;
+
+  left: 8%;
+  bottom: 60px;
+
+  color: white;
+}
+
+.room-hero-content h1 {
+  margin-bottom: 12px;
+
+  font-size: 60px;
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+.room-hero-content p {
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+/* =========================================================
+   ROOM DETAILS
+========================================================= */
+
+.room-details-section {
+  padding: 75px 0 45px;
+}
+
+.room-details-grid {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+
+  align-items: start;
+  gap: 80px;
+}
+
+.room-description {
+  max-width: 650px;
+}
+
+.room-description h2 {
+  margin-bottom: 22px;
+}
+
+.room-description > p {
+  max-width: 550px;
+
+  color: #655d57;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+/* =========================================================
+   ROOM SPECIFICATIONS
+========================================================= */
+
+.room-specifications {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  margin-top: 45px;
+  gap: 25px;
+}
+
+.specification {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+}
+
+.specification i {
+  color: #9b7655;
+  font-size: 20px;
+}
+
+.specification strong {
+  color: #5d544d;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+/* =========================================================
+   PRICE CARD
+========================================================= */
+
+.room-price-card {
+  min-height: 220px;
+  padding: 32px;
+
+  display: flex;
+  flex-direction: column;
+
+  border: 1px solid #ded7d0;
+}
+
+.room-price-label {
+  margin-bottom: 10px;
+
+  color: #6d6259;
+  font-size: 13px;
+}
+
+.room-price-card h3 {
+  margin: 0;
+
+  font-family: Arial, sans-serif;
+  font-size: 32px;
+  font-weight: 500;
+
+  color: #2d2926;
+}
+
+.room-price-night {
+  margin-top: 5px;
+
+  color: #6d6259;
+  font-size: 14px;
+}
+
+.room-book-btn {
+  width: 100%;
+
+  margin-top: auto;
+  padding: 15px 20px;
+
+  text-align: center;
+}
+
+/* =========================================================
+   ROOM GALLERY
+========================================================= */
+
+.room-gallery {
+  padding: 35px 0 70px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+
+  height: 480px;
+  gap: 16px;
+}
+
+.gallery-main,
+.gallery-side > div {
+  overflow: hidden;
+}
+
+.gallery-main {
+  height: 100%;
+}
+
+.gallery-side {
+  height: 100%;
+
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 16px;
+}
+
+.gallery-main img,
+.gallery-side img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  transition: transform 0.5s ease;
+}
+
+.gallery-main:hover img,
+.gallery-side > div:hover img {
+  transform: scale(1.04);
+}
+
+/* =========================================================
+   ROOM AMENITIES
+========================================================= */
+
+.room-amenities {
+  padding: 30px 0 80px;
+}
+
+.room-amenities h2 {
+  margin-bottom: 50px;
+}
+
+.amenities-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 25px;
+}
+
+.amenity {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  text-align: center;
+  gap: 14px;
+}
+
+.amenity i {
+  color: #9b7655;
+  font-size: 21px;
+}
+
+.amenity span {
+  color: #5e5650;
+  font-size: 13px;
+}
+
+/* =========================================================
+   OTHER ROOMS
+========================================================= */
+
+.other-rooms {
+  padding: 10px 0 90px;
+}
+
+.other-rooms h2 {
+  margin-bottom: 35px;
+}
+
+.other-rooms-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.other-room-card {
+  display: block;
+
+  color: inherit;
+  text-decoration: none;
+}
+
+.other-room-image {
+  width: 100%;
+  height: 190px;
+
+  overflow: hidden;
+}
+
+.other-room-image img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  transition: transform 0.4s ease;
+}
+
+.other-room-card:hover img {
+  transform: scale(1.05);
+}
+
+.other-room-card h3 {
+  margin-top: 14px;
+
+  font-size: 16px;
+  font-weight: 400;
+}
+
+/* =========================================================
+   ROOM CONTAINERS
+========================================================= */
+
+.room-details-section .container,
+.room-gallery .container,
+.room-amenities .container,
+.other-rooms .container {
+  width: 85%;
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* =========================================================
+   ROOM PAGE — RESPONSIVE TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+  .room-details-grid {
+    grid-template-columns: 1fr 280px;
+    gap: 45px;
+  }
+
+  .room-specifications {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .amenities-grid {
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 40px;
+  }
+}
+
+/* =========================================================
+   ROOM PAGE — RESPONSIVE MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+  .room-hero {
+    height: 400px;
+  }
+
+  .room-hero-content {
+    left: 25px;
+    bottom: 50px;
+  }
+
+  .room-hero-content h1 {
+    font-size: 46px;
+  }
+
+  .room-details-section {
+    padding: 60px 0 30px;
+  }
+
+  .room-details-grid {
+    grid-template-columns: 1fr;
+    gap: 45px;
+  }
+
+  .room-price-card {
+    width: 100%;
+  }
+
+  .room-gallery {
+    padding-bottom: 60px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  .gallery-main {
+    height: 400px;
+  }
+
+  .gallery-side {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: none;
+
+    height: 220px;
+  }
+
+  .amenities-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 35px 20px;
+  }
+
+  .other-rooms-grid {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .other-room-image {
+    height: 240px;
+  }
+}
+
+@media (max-width: 768px) {
+  .room-details-section .container,
+  .room-gallery .container,
+  .room-amenities .container,
+  .other-rooms .container {
+    width: 88%;
+
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .room-hero {
+    height: 350px;
+  }
+
+  .room-hero-content h1 {
+    font-size: 40px;
+  }
+
+  .room-specifications {
+    gap: 30px 15px;
+  }
+
+  .gallery-main {
+    height: 330px;
+  }
+
+  .gallery-side {
+    height: 160px;
+  }
+
+  .room-amenities h2,
+  .other-rooms h2 {
+    font-size: 32px;
+  }
+}
+
+/* =========================================================
+   MENU PAGE
+========================================================= */
+
+/* =========================================================
+   ACTIVE NAVIGATION
+========================================================= */
+
+.nav-bar .active-nav {
+  position: relative;
+  color: #7a542f;
+}
+
+.nav-bar .active-nav::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: -12px;
+
+  width: 100%;
+  height: 1px;
+
+  background-color: #8a5f36;
+}
+
+/* =========================================================
+   MENU HERO
+========================================================= */
+
+.menu-hero {
+  position: relative;
+
+  width: 100%;
+  height: 650px;
+
+  overflow: hidden;
+}
+
+.menu-hero img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+  object-position: center;
+}
+
+.menu-hero-overlay {
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    90deg,
+    rgba(24, 15, 9, 0.75),
+    rgba(24, 15, 9, 0.28)
+  );
+}
+
+.menu-hero-content {
+  position: absolute;
+  z-index: 2;
+
+  left: 8%;
+  bottom: 100px;
+
+  color: #ffffff;
+}
+
+.menu-hero-content h1 {
+  margin: 12px 0;
+
+  font-size: 64px;
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+.menu-hero-content > p:last-child {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+}
+
+/* =========================================================
+   MENU SECTION
+========================================================= */
+
+.menu-section {
+  width: 100%;
+
+  padding: 90px 0 100px;
+
+  background-color: #f7f5f1;
+}
+
+.menu-container {
+  width: calc(100% - 160px);
+  max-width: 1100px;
+
+  margin: 0 auto;
+}
+
+/* =========================================================
+   MENU INTRO
+========================================================= */
+
+.menu-intro {
+  max-width: 720px;
+  margin-bottom: 70px;
+}
+
+.menu-intro .eyebrow {
+  margin-bottom: 15px;
+}
+
+.menu-intro h2 {
+  margin-bottom: 20px;
+
+  color: #3f3025;
+  font-size: 42px;
+  font-weight: 400;
+}
+
+.menu-intro > p:last-child {
+  max-width: 620px;
+
+  color: #6f665e;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+/* =========================================================
+   MENU CATEGORY
+========================================================= */
+
+.menu-category {
+  width: 100%;
+  margin-bottom: 70px;
+}
+
+.menu-category > h2,
+.menu-food-content > h2 {
+  margin-bottom: 25px;
+
+  color: #4a392d;
+  font-size: 34px;
+  font-weight: 400;
+}
+
+/* =========================================================
+   MENU ITEM
+========================================================= */
+
+.menu-list,
+.menu-item-info {
+  width: 100%;
+}
+
+.menu-item {
+  width: 100%;
+  margin-bottom: 18px;
+}
+
+.menu-item-title {
+  width: 100%;
+
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.menu-item-title h3 {
+  flex-shrink: 0;
+  margin: 0;
+
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 500;
+
+  color: #4a4038;
+}
+
+.menu-item-title span {
+  flex: 1;
+  min-width: 20px;
+
+  border-bottom: 1px dotted #b8aea4;
+}
+
+.menu-item-title strong {
+  flex-shrink: 0;
+
+  color: #58473a;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.menu-item-info p {
+  margin: 7px 0 0;
+
+  color: #857970;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* =========================================================
+   MENU CATEGORY WITH IMAGE
+========================================================= */
+
+.menu-category-image {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 330px;
+
+  align-items: center;
+  gap: 55px;
+}
+
+.menu-food-content {
+  min-width: 0;
+}
+
+.menu-side-image {
+  width: 100%;
+  height: 260px;
+
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.menu-side-image img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  transition: transform 0.5s ease;
+}
+
+.menu-side-image:hover img {
+  transform: scale(1.04);
+}
+
+/* =========================================================
+   FOOTER LINKS FIX
+========================================================= */
+
+.footer-grid > div:not(.footer-brand) {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-grid h4 {
+  margin: 0 0 8px;
+}
+
+.footer-grid a {
+  text-decoration: none;
+}
+
+/* =========================================================
+   MENU PAGE — RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+  .menu-container {
+    width: calc(100% - 80px);
+  }
+
+  .menu-hero {
+    height: 550px;
+  }
+
+  .menu-hero-content h1 {
+    font-size: 52px;
+  }
+
+  .menu-category-image {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .menu-side-image {
+    width: 100%;
+    height: 380px;
+  }
+}
+
+@media (max-width: 600px) {
+  .menu-hero {
+    height: 480px;
+  }
+
+  .menu-hero-content {
+    left: 30px;
+    bottom: 70px;
+  }
+
+  .menu-hero-content h1 {
+    font-size: 45px;
+  }
+
+  .menu-section {
+    padding: 65px 0 70px;
+  }
+
+  .menu-container {
+    width: calc(100% - 40px);
+  }
+
+  .menu-intro {
+    margin-bottom: 55px;
+  }
+
+  .menu-intro h2 {
+    font-size: 34px;
+  }
+
+  .menu-category > h2,
+  .menu-food-content > h2 {
+    font-size: 30px;
+  }
+
+  .menu-item-title {
+    gap: 7px;
+  }
+
+  .menu-item-title h3 {
+    font-size: 14px;
+  }
+
+  .menu-item-title strong {
+    font-size: 13px;
+  }
+
+  .menu-side-image {
+    height: 260px;
+  }
+}
+
+/* =========================================================
+   EXPERIENCES PAGE
+========================================================= */
+
+/* =========================================================
+   EXPERIENCE HERO
+========================================================= */
+
+.experience-hero {
+  position: relative;
+
+  width: 100%;
+  height: 650px;
+
+  overflow: hidden;
+}
+
+.experience-hero img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+  object-fit: cover;
+}
+
+.experience-hero-overlay {
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.6),
+    rgba(0, 0, 0, 0.2),
+    rgba(0, 0, 0, 0.1)
+  );
+}
+
+.experience-hero-content {
+  position: absolute;
+
+  top: 50%;
+  left: 9%;
+
+  transform: translateY(-50%);
+
+  color: #ffffff;
+}
+
+.experience-hero-content h1 {
+  margin: 10px 0 12px;
+
+  font-family: Georgia, serif;
+  font-size: 70px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.experience-hero-content > p:last-child {
+  margin: 0;
+
+  font-size: 18px;
+  letter-spacing: 0.3px;
+}
+
+/* =========================================================
+   EXPERIENCE INTRO
+========================================================= */
+
+.experience-intro {
+  padding: 90px 7% 60px;
+  text-align: center;
+}
+
+.experience-intro-content {
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+.experience-intro-content h2 {
+  margin: 12px 0 20px;
+
+  font-family: Georgia, serif;
+  font-size: 42px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.experience-intro-content > p:last-child {
+  max-width: 600px;
+  margin: 0 auto;
+
+  color: #666;
+  line-height: 1.8;
+}
+
+/* =========================================================
+   EXPERIENCES GRID
+========================================================= */
+
+.experiences-section {
+  width: 100%;
+  padding: 10px 7% 90px;
+
+  box-sizing: border-box;
+}
+
+.experiences-grid {
+  width: 100%;
+  max-width: 1300px;
+
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+/* =========================================================
+   EXPERIENCE CARD
+========================================================= */
+
+.experience-card {
+  overflow: hidden;
+
+  background: #ffffff;
+  border: 1px solid #e6dfd6;
+}
+
+.experience-card-image {
+  width: 100%;
+  height: 250px;
+
+  overflow: hidden;
+}
+
+.experience-card-image img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+  object-fit: cover;
+
+  transition: transform 0.5s ease;
+}
+
+.experience-card:hover .experience-card-image img {
+  transform: scale(1.05);
+}
+
+.experience-card-content {
+  padding: 25px;
+}
+
+.experience-card-content h3 {
+  margin: 0 0 12px;
+
+  font-family: Georgia, serif;
+  font-size: 25px;
+  font-weight: 400;
+}
+
+.experience-card-content p {
+  min-height: 50px;
+  margin: 0 0 20px;
+
+  color: #666;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.experience-price {
+  display: block;
+  margin-bottom: 18px;
+
+  color: #8a5d3b;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.experience-btn {
+  display: inline-block;
+  padding: 12px 25px;
+
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+/* =========================================================
+   EXPERIENCE QUOTE
+========================================================= */
+
+.experience-quote {
+  position: relative;
+
+  width: 100%;
+  height: 400px;
+
+  overflow: hidden;
+}
+
+.experience-quote img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+  object-fit: cover;
+}
+
+.experience-quote-overlay {
+  position: absolute;
+  inset: 0;
+
+  background: rgba(35, 20, 10, 0.55);
+}
+
+.experience-quote-content {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+  text-align: center;
+}
+
+.experience-quote-content p {
+  max-width: 800px;
+  margin: 0;
+
+  color: #ffffff;
+
+  font-family: Georgia, serif;
+  font-size: 45px;
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+/* =========================================================
+   EXPERIENCES PAGE — RESPONSIVE TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+  .experience-hero {
+    height: 500px;
+  }
+
+  .experience-hero-content h1 {
+    font-size: 55px;
+  }
+
+  .experiences-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .experience-quote-content p {
+    font-size: 35px;
+  }
+}
+
+/* =========================================================
+   EXPERIENCES PAGE — RESPONSIVE MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+  .experience-hero {
+    height: 480px;
+  }
+
+  .experience-hero-content {
+    left: 8%;
+    right: 8%;
+  }
+
+  .experience-hero-content h1 {
+    font-size: 46px;
+  }
+
+  .experience-hero-content > p:last-child {
+    font-size: 16px;
+  }
+
+  .experience-intro {
+    padding: 70px 25px 40px;
+  }
+
+  .experience-intro-content h2 {
+    font-size: 32px;
+  }
+
+  .experiences-section {
+    padding: 20px 25px 70px;
+  }
+
+  .experiences-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .experience-card-image {
+    height: 260px;
+  }
+
+  .experience-quote {
+    height: 350px;
+  }
+
+  .experience-quote-content p {
+    font-size: 30px;
+  }
+}
