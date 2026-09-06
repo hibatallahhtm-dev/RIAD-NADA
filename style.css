@@ -788,13 +788,14 @@ a {
   }
 
   .logo {
-    width: 100px;
-    height: 65px;
+    width: 80px;
+    height: 55px;
   }
 
   .nav-bar {
-    gap: 10px;
+    gap: 5px;
     overflow-x: auto;
+     font-size: 6px;
   }
 
   .hero {
@@ -825,6 +826,9 @@ a {
   .rooms .container {
     align-items: flex-start;
     gap: 20px;
+  }
+   .rooms .eyebrow {
+    font-size: 10px;
   }
 
   .rooms-grid {
