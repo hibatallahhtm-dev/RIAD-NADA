@@ -1202,6 +1202,11 @@ a {
   .story-quote-content h2 {
     font-size: 33px;
   }
+
+   .story-philosophy .eyebrow{
+    font-size: 10px;
+  }
+   
 }
 
 /* =========================================================
