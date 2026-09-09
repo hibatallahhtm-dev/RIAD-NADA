@@ -202,3 +202,16 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 });
+
+
+const menuToggle = document.getElementById("menuToggle");
+const navBar = document.querySelector(".nav-bar");
+
+if (menuToggle && navBar) {
+  menuToggle.addEventListener("click", () => {
+    const isOpen = navBar.classList.toggle("active");
+
+    menuToggle.classList.toggle("active", isOpen);
+    menuToggle.setAttribute("aria-expanded", isOpen);
+  });
+}
